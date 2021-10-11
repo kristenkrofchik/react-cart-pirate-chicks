@@ -1,9 +1,12 @@
+import Header from './components/header/Header';
+import Hero from './components/hero/Hero';
 import './App.scss';
+
 
 function App() {
   return (
     <div className="App">
-      Pirate Chicks Vintage
+      <Header />
     </div>
   );
 }
