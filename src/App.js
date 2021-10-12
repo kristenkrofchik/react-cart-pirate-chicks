@@ -1,6 +1,7 @@
 import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 import MainSection from './components/main-section/MainSection';
+import FeaturedCollection from './components/featured-collection/FeaturedCollection';
 import './App.scss';
 
 
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Hero />
       <MainSection />
+      <FeaturedCollection />
     </div>
   );
 }
