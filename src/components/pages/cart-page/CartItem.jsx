@@ -1,8 +1,10 @@
 import React from 'react';
-import { PlusCircleIcon, MinusCircleIcon, TrashIcon } from '../../icons';
+import { PlusCircleIcon, MinusCircleIcon, TrashIcon } from '../../icons/Index';
+import './CartPage.styles.scss';
 
-const CartItem = (product) => {
-    const { title, imageUrl, price, quantity } = product;
+const CartItem = (props) => {
+    const { title, id, imageUrl, price, quantity, description, increase, decrease, removeProduct } = props;
+    const product = { title, imageUrl, price, quantity, id, description }
 
     return (
         <div className='cart-item'>
@@ -14,21 +16,21 @@ const CartItem = (product) => {
                 <p>$ {price}</p>
             </div>
             <div className='quantity'>
-                <p>Quantity: ${quantity}</p>
+                <p>Quantity: {quantity}</p>
             </div>
             <div className='btns-container'>
-                <button className='btn-increase'>
+                <button className='btn-increase' onClick={() => increase(product)}>
                     <PlusCircleIcon width='20px' />
                 </button>
                 {
                     quantity === 1 &&
-                    <button className='btn-trash'>
+                    <button className='btn-trash' onClick={() => removeProduct(product)}>
                         <TrashIcon width='20px' />
                     </button>
                 }
                 {
                     quantity > 1 &&
-                    <button className='btn-decrease'>
+                    <button className='btn-decrease' onCLick={() => decrease(product)}>
                         <MinusCircleIcon width='20px' />
                     </button>
                 }
