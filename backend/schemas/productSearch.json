@@ -1,0 +1,20 @@
+{
+    "$id": "http://example.com/example.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "default": {},
+    "required": [],
+    "type": "object",
+    "properties": {
+        "category": {
+            "$id": "#/properties/category",
+            "type": "string",
+            "minLength": 1
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "minLength": 1
+        }
+    },
+    "additionalProperties": false
+}

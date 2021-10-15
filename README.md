@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Pirate Chicks Vintage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pirate Chicks Vintage is an ecommerce website for the vintage shop I own and operate with my mom. It was made with PostgreSQL, Node.js, Express and React.
 
-## Available Scripts
+### User Flow
 
-In the project directory, you can run:
+A user will enter the site via the homepage. From there, they will use a navigation bar to view the shop's product inventory, which is stored on the backend in a PostgreSQL database. The user will be able to view the products by a variety of criteria, including date added, price, name and category. The user interface on the frontend was created with React. The React code makes calls to the website's API on the Node.js backend to display the products and other relevant information.
 
-### `npm start`
+A user can register for the site, or log in if already registered, to add items to their shopping cart. When they are finished shopping, a user can purchase the items in their cart. The user data, including basic registration data, address, and payment information, will also be saved in the site's PostgreSQL database.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Status
+This project is still in process. Version 1 will be deployed in October, 2021. Future versions of the project will include more functionality including a contact form and newsletter signup.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Installation
 
-### `npm test`
+#### Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Fork repository
+2. Clone repository to local environment
+3. Run npm install to install dependencies:
 
-### `npm run build`
+```bash
+$ npm install
+```
+4. Run npm start to start the application:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ npm start
+```
+#### Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Open new terminal
+2. Cd into the frontend directory
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ cd frontend
+```
+3. Run npm install to install dependencies:
 
-### `npm run eject`
+```bash
+$ npm install
+```
+4. Run npm start to start the application:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+$ npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Technologies
+[Node.js](https://nodejs.org/en/docs/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Express](https://expressjs.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[React](https://reactjs.org/docs/getting-started.html)
 
-## Learn More
+[Create React App](https://create-react-app.dev/docs/getting-started/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[PostgreSQL](https://www.postgresql.org/docs/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Axios](https://axios-http.com/docs/intro)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Contributing
+Pull requests are welcome. Please open an issue first to discuss what you would like to change.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### License
+Kristen Krofchik

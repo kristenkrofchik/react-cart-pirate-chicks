@@ -1,0 +1,147 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "default": {},
+    "required": [
+        "product"
+    ],
+    "properties": {
+        "product": {
+            "$id": "#/properties/product",
+            "required": [
+                "name",
+                "description",
+                "condition",
+                "quantity",
+                "date_added",
+                "price"
+            ],
+            "title": "The new product schema",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$id": "#/properties/product/properties/id",
+                    "default": 0,
+                    "examples": [
+                        1
+                    ],
+                    "title": "The id schema",
+                    "required": [],
+                    "type": "integer"
+                },
+                "name": {
+                    "$id": "#/properties/product/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "default": "",
+                    "examples": [
+                        "Vintage Santa Claus Figurine"
+                    ]
+                },
+                "description": {
+                    "$id": "#/properties/product/properties/description",
+                    "type": "string",
+                    "title": "The description schema",
+                    "default": "",
+                    "examples": [
+                        "This is a vintage midcentury ceramic figurine made in Japan."
+                    ]
+                },
+                "condition": {
+                    "$id": "#/properties/product/properties/condition",
+                    "type": "string",
+                    "title": "The condition schema",
+                    "default": "",
+                    "examples": [
+                        "good"
+                    ]
+                },
+                "image": {
+                    "$id": "#/properties/product/properties/image",
+                    "type": "string",
+                    "title": "The image schema",
+                    "default": "",
+                    "examples": [
+                        "https://images.unsplash.com/photo-1607541768316-3d51083eabdd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhbnRhfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
+                    ]
+                },
+                "quantity": {
+                    "$id": "#/properties/product/properties/quantity",
+                    "type": "integer",
+                    "title": "The quantity schema",
+                    "default": 0,
+                    "examples": [
+                        1
+                    ]
+                },
+                "primary_color": {
+                    "$id": "#/properties/product/properties/primary_color",
+                    "type": "string",
+                    "title": "The primary_color schema",
+                    "default": "",
+                    "examples": [
+                        "red"
+                    ]
+                },
+                "era": {
+                    "$id": "#/properties/product/properties/era",
+                    "type": "string",
+                    "title": "The era schema",
+                    "default": "",
+                    "examples": [
+                        "1950s"
+                    ]
+                },
+                "height_in_inches": {
+                    "$id": "#/properties/product/properties/height_in_inches",
+                    "type": "integer",
+                    "title": "The height_in_inches schema",
+                    "default": 0,
+                    "examples": [
+                        5
+                    ]
+                },
+                "width_in_inches": {
+                    "$id": "#/properties/product/properties/width_in_inches",
+                    "type": "integer",
+                    "title": "The width_in_inches schema",
+                    "default": 0,
+                    "examples": [
+                        3
+                    ]
+                },
+                "date_added": {
+                    "$id": "#/properties/product/properties/date_added",
+                    "type": "string",
+                    "title": "The date_added schema",
+                    "default": "",
+                    "examples": [
+                        "2018-12-10T13:45:00.000Z"
+                    ]
+                },
+                "price": {
+                    "$id": "#/properties/product/properties/price",
+                    "type": "number",
+                    "title": "The price schema",
+                    "default": 0.0,
+                    "examples": [
+                        18.0
+                    ]
+                },
+                "category_name": {
+                    "$id": "#/properties/product/properties/category_name",
+                    "type": "string",
+                    "title": "The category_name schema",
+                    "default": "",
+                    "examples": [
+                        "Christmas"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}

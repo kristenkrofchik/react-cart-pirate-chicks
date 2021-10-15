@@ -1,0 +1,179 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "product": {
+                "name": "",
+                "description": "This is a handmade wooden owl.",
+                "condition": "fair",
+                "image": "https://source.unsplash.com/user/c_v_r",
+                "quantity": 1,
+                "primary-color": "",
+                "era": "",
+                "height_in_inches": 6,
+                "width_in_inches": 5,
+                "date_added": "2000-02-01 00:00:00",
+                "price": 5.0,
+                "category_name": ""
+            }
+        }
+    ],
+    "required": [
+        "product"
+    ],
+    "properties": {
+        "product": {
+            "$id": "#/properties/product",
+            "default": {},
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                {
+                    "name": "",
+                    "description": "This is a handmade wooden owl.",
+                    "condition": "fair",
+                    "image": "https://source.unsplash.com/user/c_v_r",
+                    "quantity": 1,
+                    "primary-color": "",
+                    "era": "",
+                    "height_in_inches": 6,
+                    "width_in_inches": 5,
+                    "date_added": "2000-02-01 00:00:00",
+                    "price": 5.0,
+                    "category_name": ""
+                }
+            ],
+            "required": [],
+            "title": "The product schema",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "$id": "#/properties/product/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "description": {
+                    "$id": "#/properties/product/properties/description",
+                    "type": "string",
+                    "title": "The description schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "This is a handmade wooden owl."
+                    ]
+                },
+                "condition": {
+                    "$id": "#/properties/product/properties/condition",
+                    "type": "string",
+                    "title": "The condition schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "fair"
+                    ]
+                },
+                "image": {
+                    "$id": "#/properties/product/properties/image",
+                    "type": "string",
+                    "title": "The image schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "https://source.unsplash.com/user/c_v_r"
+                    ]
+                },
+                "quantity": {
+                    "$id": "#/properties/product/properties/quantity",
+                    "type": "integer",
+                    "title": "The quantity schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        1
+                    ]
+                },
+                "primary-color": {
+                    "$id": "#/properties/product/properties/primary-color",
+                    "type": "string",
+                    "title": "The primary-color schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "era": {
+                    "$id": "#/properties/product/properties/era",
+                    "type": "string",
+                    "title": "The era schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "height_in_inches": {
+                    "$id": "#/properties/product/properties/height_in_inches",
+                    "type": "integer",
+                    "title": "The height_in_inches schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        6
+                    ]
+                },
+                "width_in_inches": {
+                    "$id": "#/properties/product/properties/width_in_inches",
+                    "type": "integer",
+                    "title": "The width_in_inches schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                        5
+                    ]
+                },
+                "date_added": {
+                    "$id": "#/properties/product/properties/date_added",
+                    "type": "string",
+                    "title": "The date_added schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "2000-02-01 00:00:00"
+                    ]
+                },
+                "price": {
+                    "$id": "#/properties/product/properties/price",
+                    "type": "number",
+                    "title": "The price schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0.0,
+                    "examples": [
+                        5.0
+                    ]
+                },
+                "category_name": {
+                    "$id": "#/properties/product/properties/category_name",
+                    "type": "string",
+                    "title": "The category_name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        ""
+                    ]
+                }
+            },
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": true
+}
