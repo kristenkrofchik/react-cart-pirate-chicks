@@ -1,5 +1,9 @@
 # Pirate Chicks Vintage
 
+[Pirate Chicks Vintage](https://pirate-chicks-vintage.netlify.app/)
+
+(This website is currently in the process of being deployed at the above URL)
+
 Pirate Chicks Vintage is an ecommerce website for the vintage and antique shop I own and operate with my mom. Our shop has a large variety of products, but we specialize in colelctibles and home decor items from the 1920's to 1990's. This website was made with PostgreSQL, Node.js, Express and React. The website will list our available products and allow users to shop by adding items to their shopping cart and purchasing them. 
 
 ### User Flow
