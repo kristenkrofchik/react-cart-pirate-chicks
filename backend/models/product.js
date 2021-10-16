@@ -19,7 +19,7 @@ class Product {
             throw new BadRequestError(`This product already exists in the database: ${product_name}`);
         
         const result = await db.query(
-            `INSERT INTO companies
+            `INSERT INTO products
             (name, description, condition, image, quantity, primary_color, era, height_in_inches, width_in_inches, date_added, price, category_name)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
             RETURNING name, description, condition, image, quantity, primary_color AS 'primaryColor', era, height_in_inches AS 'heightInInches', width_in_inches AS 'widthInInches', date_added AS 'dateAdded', price, category_name AS 'categoryName'`,
@@ -99,13 +99,13 @@ class Product {
                     condition,
                     image,
                     quantity,
-                    primary_color AS 'primaryColor',
+                    primary_color AS "primaryColor",
                     era,
-                    height_in_inches AS 'heightInInches',
-                    width_in_inches AS 'widthInInches',
-                    date_added AS 'dateAdded',
+                    height_in_inches AS "heightInInches",
+                    width_in_inches AS "widthInInches",
+                    date_added AS "dateAdded",
                     price,
-                    category_name AS 'categoryName'
+                    category_name AS "categoryName"
             FROM products
             WHERE id = $1`,
             [id]);
@@ -126,11 +126,11 @@ class Product {
         const { setCols, values } = sqlForPartialUpdate(
             data,
             {
-                primaryColor: 'primary_color',
-                heightInInches: 'height_in_inches',
-                widthInInches: 'width_in_inches',
-                dateAdded: 'date_added',
-                categoryName: 'category_name'
+                primaryColor: "primary_color",
+                heightInInches: "height_in_inches",
+                widthInInches: "width_in_inches",
+                dateAdded: "date_added",
+                categoryName: "category_name"
             });
         const handleVarIdx = '$' + (values.length + 1);
 
@@ -142,13 +142,13 @@ class Product {
                                     condition, 
                                     image,
                                     quantity,
-                                    primary_color AS 'primaryColor',
+                                    primary_color AS "primaryColor",
                                     era,
-                                    height_in_inches AS 'heightInInches',
-                                    width_in_inches AS 'widthInInches',
-                                    date_added AS 'dateAdded',
+                                    height_in_inches AS "heightInInches",
+                                    width_in_inches AS "widthInInches",
+                                    date_added AS "dateAdded",
                                     price,
-                                    category_name AS 'categoryName'`;
+                                    category_name AS "categoryName"`;
         const result = await db.query(querySql, [...values, id]);
         const product = result.rows[0];
 
