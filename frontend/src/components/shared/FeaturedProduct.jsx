@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import './FeaturedProduct.styles.scss';
 
 const FeaturedProduct = (props) => {
-    const {title, imageUrl, price, history, id, description } = props;
-    const product = { title, imageUrl, price, id, description };
+    const {name, image, price, history, id, description } = props;
+    const product = { name, image, price, id, description };
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const itemInCart = isInCart(product, cartItems);
 
@@ -14,10 +14,10 @@ const FeaturedProduct = (props) => {
     return (
         <div className='featured-product'>
             <div className='featured-image' onClick={() => history.push(`/product/${id}`)}>
-                <img src={imageUrl} alt='product' />
+                <img src={image} alt={name} />
             </div>
             <div className='name-price'>
-                <h3>{title}</h3>
+                <h3>{name}</h3>
                 <p>$ {price}</p>
                 { 
                     !itemInCart &&

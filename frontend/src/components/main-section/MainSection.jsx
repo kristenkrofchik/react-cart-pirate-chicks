@@ -15,8 +15,8 @@ const MainSection = ({ history }) => {
                     <p>
                         We are a mother and daughter duo passionate about the past. Decorate your life with artifacts from the past... straight from our treasure hunts to your home!
                     </p>
-                    <button className='button is-black' id='shop-now' onClicl={()=> history.push('/product/1')}>
-                        Details
+                    <button className='button is-black' id='shop-now' onClicl={()=> history.push('/about')}>
+                        About Us
                     </button>
                 </div>
             </div>

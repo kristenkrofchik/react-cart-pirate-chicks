@@ -20,6 +20,11 @@ const Header = () => {
                         Shop
                     </Link> 
                 </li>
+                <li>
+                    <Link to='/about'>
+                        About
+                    </Link> 
+                </li>
             </ul>
             <CartIcon />
         </nav>
