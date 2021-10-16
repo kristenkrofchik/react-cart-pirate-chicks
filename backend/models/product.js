@@ -50,7 +50,8 @@ class Product {
      * -name (will find case-insensitive, partial match)
      */
     static async findAll(searchFilters = {}) {
-        let query = `SELECT name,
+        let query = `SELECT id,
+                            name,
                             description,
                             condition,
                             image,
@@ -94,7 +95,8 @@ class Product {
 
     static async get(id) {
         const productRes = await db.query(
-            `SELECT name,
+            `SELECT id,
+                    name,
                     description,
                     condition,
                     image,
@@ -137,7 +139,8 @@ class Product {
         const querySql = `UPDATE products
                           SET ${setCols}
                           WHERE handle = ${handleVarIdx}
-                          RETURNING name,
+                          RETURNING id,
+                                    name,
                                     description,
                                     condition, 
                                     image,

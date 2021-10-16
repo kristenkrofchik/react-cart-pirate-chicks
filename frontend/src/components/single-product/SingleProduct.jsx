@@ -7,7 +7,7 @@ import Layout from '../shared/Layout';
 import PirateApi from '../../Api';
 import './SingleProduct.styles.scss';
 
-const SingleProduct = ({ match, history: { push } }) => {
+const SingleProduct = ({ history: { push } }) => {
     //const { products } = useContext(ProductsContext);
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const { id } = useParams();
