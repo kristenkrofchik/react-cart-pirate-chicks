@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import { ProductsContext } from '../../context/ProductsContext';
 import FeaturedProduct from '../shared/FeaturedProduct';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import PirateApi from '../../Api';

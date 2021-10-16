@@ -1,42 +1,46 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { ProductsContext } from '../../context/ProductsContext';
+//import { ProductsContext } from '../../context/ProductsContext';
 import { CartContext } from '../../context/CartContext';
 import { isInCart } from '../../Helpers';
 import Layout from '../shared/Layout';
+import PirateApi from '../../Api';
 import './SingleProduct.styles.scss';
 
 const SingleProduct = ({ match, history: { push } }) => {
-    const { products } = useContext(ProductsContext);
+    //const { products } = useContext(ProductsContext);
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const { id } = match.params;
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        const product = products.find(item => Number(item.id) === Number(id));
-
+        async function getProduct() {
+            setProduct(await PirateApi.getProduct(id))
+        }
+        getProduct();
+        
         if(!product) {
             return push('/shop');
         }
-
+        
         setProduct(product);
-    }, [products, product, id, push]);
+    }, [id, product, push]);
 
     //while we wait for product
     if(!product) { return null };
 
-    const { imageUrl, title, price, description } = product;
+    const { image, name, price, description } = product;
     const itemInCart = isInCart(product, cartItems);
 
     return (
         <Layout>
             <div className='single-product-container'>
                 <div className='product-image'>
-                    <img src={imageUrl} alt='product' />
+                    <img src={image} alt={name} />
                 </div>
                 <div className='product-details'>
                     <div className='name-price'>
-                        <h3>{title}</h3>
+                        <h3>{name}</h3>
                         <p>$ {price}</p>
                     </div>
                     <div className='add-to-cart-buttons'>
