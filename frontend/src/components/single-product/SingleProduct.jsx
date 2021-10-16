@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
 //import { ProductsContext } from '../../context/ProductsContext';
 import { CartContext } from '../../context/CartContext';
 import { isInCart } from '../../Helpers';
@@ -10,7 +10,7 @@ import './SingleProduct.styles.scss';
 const SingleProduct = ({ match, history: { push } }) => {
     //const { products } = useContext(ProductsContext);
     const { addProduct, increase, cartItems } = useContext(CartContext);
-    const { id } = match.params;
+    const { id } = useParams();
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
