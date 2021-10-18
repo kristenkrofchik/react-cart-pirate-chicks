@@ -23,7 +23,7 @@ const SingleProduct = ({ history: { push } }) => {
     //while we wait for product
     if(!product) return <LoadingSpinner />;
 
-    const { image, name, price, description } = product;
+    const { image, name, price, description, quantity } = product;
     const itemInCart = isInCart(product, cartItems);
 
     return (
@@ -46,7 +46,7 @@ const SingleProduct = ({ history: { push } }) => {
                             </button>
                         }
                         {
-                            itemInCart &&
+                            itemInCart && quantity > 1 &&
                             <button 
                                 className='button is-white pirate-btn' id='btn-white-outline' onClick={() => increase(product)}>
                                 ADD MORE

@@ -5,15 +5,10 @@ import { withRouter } from 'react-router-dom';
 import './FeaturedProduct.styles.scss';
 
 const FeaturedProduct = (props) => {
-    const {name, price, history, id, description } = props;
-    let {image} = props;
+    const {name, price, history, image, id, description, quantity } = props;
     const product = { name, image, price, id, description };
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const itemInCart = isInCart(product, cartItems);
-
-    if(image === null) {
-        image = '../../assets/no-image-icon.png';
-    }
 
     return (
         <div className='featured-product'>
@@ -28,7 +23,7 @@ const FeaturedProduct = (props) => {
                     <button className='button is-black pirate-btn' onClick={() => addProduct(product)}>ADD TO CART</button>
                 }
                 {
-                    itemInCart &&
+                    itemInCart && quantity > 1 &&
                     <button className='button is-white pirate-btn' id='btn-white-outline' onClick={() => increase(product)}>ADD MORE</button>
                 }
             </div>
