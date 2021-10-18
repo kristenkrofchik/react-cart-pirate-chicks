@@ -6,6 +6,7 @@ import { isInCart } from '../../Helpers';
 import Layout from '../shared/Layout';
 import PirateApi from '../../Api';
 import './SingleProduct.styles.scss';
+import LoadingSpinner from '../shared/LoadingSpinner';
 
 const SingleProduct = ({ history: { push } }) => {
     //const { products } = useContext(ProductsContext);
@@ -18,14 +19,11 @@ const SingleProduct = ({ history: { push } }) => {
             setProduct(await PirateApi.getProduct(id))
         }
         getProduct();
-        
-        if(!product) {
-            return push('/shop');
-        }
-    }, [id, product, push]);
+    }, [id]);
+
 
     //while we wait for product
-    if(!product) { return null };
+    if(!product) return <LoadingSpinner />;
 
     const { image, name, price, description } = product;
     const itemInCart = isInCart(product, cartItems);
