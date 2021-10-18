@@ -3,8 +3,8 @@ import { PlusCircleIcon, MinusCircleIcon, TrashIcon } from '../../icons/Index';
 import './CartPage.styles.scss';
 
 const CartItem = (props) => {
-    const { title, id, imageUrl, price, quantity, description, increase, decrease, removeProduct } = props;
-    const product = { title, imageUrl, price, quantity, id, description }
+    const { title, id, imageUrl, price, quantity, cartQuantity, description, increase, decrease, removeProduct } = props;
+    const product = { title, imageUrl, price, quantity, cartQuantity, id, description }
 
     return (
         <div className='cart-item'>
@@ -16,20 +16,23 @@ const CartItem = (props) => {
                 <p>$ {price}</p>
             </div>
             <div className='quantity'>
-                <p>Quantity: {quantity}</p>
+                <p>Quantity: {cartQuantity}</p>
             </div>
             <div className='btns-container'>
-                <button className='btn-increase' onClick={() => increase(product)}>
-                    <PlusCircleIcon width='20px' />
-                </button>
+                {   
+                    quantity > 1 &&
+                    <button className='btn-increase' onClick={() => increase(product)}>
+                        <PlusCircleIcon width='20px' />
+                    </button>
+                }       
                 {
-                    quantity === 1 &&
+                    cartQuantity === 1 &&
                     <button className='btn-trash' onClick={() => removeProduct(product)}>
                         <TrashIcon width='20px' />
                     </button>
                 }
                 {
-                    quantity > 1 &&
+                    cartQuantity > 1 &&
                     <button className='btn-decrease' onClick={() => decrease(product)}>
                         <MinusCircleIcon width='20px' />
                     </button>
