@@ -10,11 +10,10 @@ const FeaturedProduct = (props) => {
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const itemInCart = isInCart(product, cartItems);
 
-
     return (
         <div className='featured-product'>
             <div className='featured-image' onClick={()=> history.push(`/product/${id}`)}>
-                <img src={image} alt={name} />
+                <img src={image} alt={name} onerror="this.src='../../assets/no-image-icon.png'" />
             </div>
             <div className='name-price'>
                 <h3>{name}</h3>
