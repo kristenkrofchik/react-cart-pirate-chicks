@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { withRouter, useParams } from 'react-router-dom';
-//import { ProductsContext } from '../../context/ProductsContext';
 import { CartContext } from '../../context/CartContext';
 import { isInCart } from '../../Helpers';
 import Layout from '../shared/Layout';
@@ -9,7 +8,6 @@ import './SingleProduct.styles.scss';
 import LoadingSpinner from '../shared/LoadingSpinner';
 
 const SingleProduct = ({ history: { push } }) => {
-    //const { products } = useContext(ProductsContext);
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const { id } = useParams();
     const [product, setProduct] = useState(null);
