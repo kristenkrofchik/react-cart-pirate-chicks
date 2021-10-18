@@ -1,13 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../shared/Layout';
 import FeaturedProduct from '../../shared/FeaturedProduct';
-import { ProductsContext } from '../../../context/ProductsContext';
+import LoadingSpinner from '../../shared/LoadingSpinner';
+import PirateApi from '../../../Api';
+//import { ProductsContext } from '../../../context/ProductsContext';
 import './Shop.styles.scss';
 
 const Shop = () => {
-    const { products } = useContext(ProductsContext);
+
+    const [products, setProducts] = useState(null);
+
+    useEffect(function getProductsOnMount() {
+        search();
+    }, []);
+    
+    async function search(name) {
+        let products = await PirateApi.getProducts(name);
+        setProducts(products);
+      }
+
+    if (!products) return <LoadingSpinner />;
+
     const allProducts = products.map(product => (
-        <FeaturedProduct { ...product } key={product.id} />
+        <FeaturedProduct {...product} key={product.id} />
     ));
 
     return (

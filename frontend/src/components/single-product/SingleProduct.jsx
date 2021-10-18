@@ -22,8 +22,6 @@ const SingleProduct = ({ history: { push } }) => {
         if(!product) {
             return push('/shop');
         }
-        
-        setProduct(product);
     }, [id, product, push]);
 
     //while we wait for product
