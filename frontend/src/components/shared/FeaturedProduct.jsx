@@ -5,15 +5,20 @@ import { withRouter } from 'react-router-dom';
 import './FeaturedProduct.styles.scss';
 
 const FeaturedProduct = (props) => {
-    const {name, image, price, history, id, description } = props;
+    const {name, price, history, id, description } = props;
+    let {image} = props;
     const product = { name, image, price, id, description };
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const itemInCart = isInCart(product, cartItems);
 
+    if(image === null) {
+        image = '../../assets/no-image-icon.png';
+    }
+
     return (
         <div className='featured-product'>
             <div className='featured-image' onClick={()=> history.push(`/product/${id}`)}>
-                <img src={image} alt={name} onerror="this.src='../../assets/no-image-icon.png'" />
+                <img src={image} alt={name} />
             </div>
             <div className='name-price'>
                 <h3>{name}</h3>
