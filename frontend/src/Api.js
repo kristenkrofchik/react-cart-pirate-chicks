@@ -63,6 +63,18 @@ class PirateApi {
         return res.user;
     }
 
+    /** Get info from Stripe API */
+    static async fetchFromAPI(endpoint, opts) {
+        const { method, body } = { method: 'POST', body: null, ...opts };
+        const res = await this.request(`/checkouts/${endpoint}`, {
+            ...(body && { body: JSON.stringify(body) }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }, method);
+        return res.json();
+    }
+
 }
 
 PirateApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
