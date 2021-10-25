@@ -22,7 +22,7 @@ async function createCheckoutSession(req, res) {
             cancel_url: `${domainUrl}/cancelled`,
             shipping_address_collection: { allowed_countries: ['US'] }
         })
-        res.status(200).json({ sessionID: session.id });
+        res.status(200).json({ sessionId: session.id });
     } catch(error) {
         console.log(error);
         throw new BadRequestError();
