@@ -5,11 +5,14 @@
 require('dotenv').config();
 require('colors');
 
-//Common config for Piarte Chicks Vintage
+//Common config for Pirate Chicks Vintage
 
-const SECRET_KEY = process.env.SECRET_KEY || 'secret-dev';
+const SECRET_KEY = process.env.SECRET_KEY ||'sk_test_51JoBGWE464iRZKxIQKltbapqxNaCm88utZqad6E2dXuGmq5JUQIwP7m7R4RIDym7DWTDc5bHIi4bG2R8GpAsCJc600XQRFBgyk'
+//const SECRET_KEY = process.env.SECRET_KEY || 'secret-dev';
 
 const PORT = +process.env.PORT || 3001;
+
+const WEB_APP_URL = process.env.WEB_APP_URL || 'http://localhost:3000';
 
 /** Use either app database or testing database */
 function getDatabase() {
@@ -32,5 +35,6 @@ module.exports = {
     SECRET_KEY,
     PORT,
     BCRYPT_WORK_FACTOR,
-    getDatabase
+    getDatabase, 
+    WEB_APP_URL
 };

@@ -14,6 +14,7 @@ const User = require("../models/user");
 const { createToken } = require("../helpers/tokens");
 const { BadRequestError } = require("../expressError");
 
+
 /** POST /auth/token:  { username, password } => { token }
  * login authentication.
  * Returns JWT token which can be used to authenticate further requests.

@@ -10,7 +10,7 @@ const morgan = require('morgan');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: true }));
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(authenticateJWT);
@@ -20,10 +20,13 @@ app.use(authenticateJWT);
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const userRoutes = require('./routes/users');
+const checkoutRoutes = require('./routes/checkouts');
 
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
+app.use('/checkouts', checkoutRoutes);
+
 
 /**Handle 404 errors */
 
