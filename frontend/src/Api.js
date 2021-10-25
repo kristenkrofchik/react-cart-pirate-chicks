@@ -62,20 +62,26 @@ class PirateApi {
         let res = await this.request(`users/${username}`);
         return res.user;
     }
-
-    /** Get info from Stripe API */
-    static async fetchFromAPI(endpoint, opts) {
-        const { method, body } = { method: 'POST', body: null, ...opts };
-        const res = await this.request(`/checkouts/${endpoint}`, {
-            ...(body && { body: JSON.stringify(body) }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }, method);
-        return res.json();
-    }
-
 }
+
+
+export async function fetchFromAPI(endpoint, opts) {
+  const { body } = { body: null, ...opts };
+  const res = await axios.post(`${BASE_URL}/${endpoint}`, {
+    ...(body && { body: JSON.stringify(body) }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (res.status === 200) {
+    return res.json();
+  } else {
+    throw new Error(res.statusText);
+  }
+}
+
+
 
 PirateApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +

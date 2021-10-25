@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import { CartContext } from '../../../context/CartContext';
-import PirateApi from '../../../Api';
+import { fetchFromAPI } from '../../../Helpers';
 
 const StripeCheckout = () => {
     const [email, setEmail] = useState('');
     const { cartItems } = useContext(CartContext);
     const stripe = useStripe();
 
-    async function handleGuestCheckout(e) {
+    const handleGuestCheckout = async(e) => {
         e.preventDefault();
         const line_items = cartItems.map(item => {
             return {
@@ -25,18 +25,22 @@ const StripeCheckout = () => {
             }
         });
 
-        const resp = await PirateApi.fetchFromAPI(`create-checkout-session`, {
-            body: { line_items, customer_email: email},
+        const resp = await fetchFromAPI('checkouts/create-checkout-session', {
+            body: { line_items, customer_email: email },
         });
-        const { sessionId } = resp;
+
+        console.log(resp);
+
+        //const { sessionId } = resp;
+
         const { error } = await stripe.redirectToCheckout({
-            sessionId
-        })
+            line_items
+        });
 
         if (error) {
             console.log(error);
         }
-    };
+    }
 
     return (
         <form onSubmit={handleGuestCheckout}>
