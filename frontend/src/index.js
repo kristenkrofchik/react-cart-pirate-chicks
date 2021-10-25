@@ -5,11 +5,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CartContextProvider from './context/CartContext';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
 ReactDOM.render(
   <BrowserRouter>
     <CartContextProvider>
-      <App />
+      <Elements stripe={stripePromise}>
+        <App />
+      </Elements>
     </CartContextProvider>
   </BrowserRouter>,
   document.getElementById('root')
