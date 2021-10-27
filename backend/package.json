@@ -19,7 +19,8 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.14",
     "pg": "^8.7.1",
-    "stripe": "^8.184.0"
+    "stripe": "^8.184.0",
+    "supertest": "^6.1.6"
   },
   "devDependencies": {
     "dotenv": "^10.0.0"
