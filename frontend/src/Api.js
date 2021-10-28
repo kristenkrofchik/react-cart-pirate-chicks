@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.NODE_ENV === 'production' ? 'https://react-pirate-chicks.herokuapp.com/' : 'http://localhost:3001';
 
 /**Handles methods on frontend side for communicating with API.
  * This will be the only location for API-aware code
