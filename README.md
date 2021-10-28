@@ -2,8 +2,6 @@
 
 [Pirate Chicks Vintage](https://react-pirate-chicks.herokuapp.com/)
 
-(This website is currently in the process of being deployed at the above URL)
-
 Pirate Chicks Vintage is an ecommerce website for the vintage and antique shop I own and operate with my mom. Our shop has a large variety of products, but we specialize in colelctibles and home decor items from the 1920's to 1990's. This website was made with PostgreSQL, Node.js, Express and React. The website will list our available products and allow users to shop by adding items to their shopping cart and purchasing them. 
 
 ### User Flow
@@ -13,7 +11,7 @@ A user will enter the site via the homepage. From there, they will use a navigat
 A user can choose products to add to their shopping cart. When they are finished shopping, a user can purchase the items in their cart. A user can also choose to register and login to the website to save their data for later shopping trips. The user data, including basic registration data, address, and payment information, will also be saved in the site's PostgreSQL database.
 
 ### Status
-This project is still in process. Version 1 will be deployed in October, 2021. Future versions of the project will include more functionality including a contact form and newsletter signup.
+This project is still in process. Version 1 will be deployed in October, 2021. Future versions of the project will include more functionality including user signup/login, a contact form and newsletter signup.
 
 ### Installation
 
