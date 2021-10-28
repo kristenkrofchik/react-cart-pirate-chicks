@@ -1,6 +1,6 @@
 # Pirate Chicks Vintage
 
-[Pirate Chicks Vintage](https://pirate-chicks-vintage.netlify.app/)
+[Pirate Chicks Vintage](https://react-pirate-chicks.herokuapp.com/)
 
 (This website is currently in the process of being deployed at the above URL)
 
