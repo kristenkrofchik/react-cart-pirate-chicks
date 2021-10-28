@@ -13,7 +13,7 @@ CREATE TABLE products (
     era TEXT,
     height_in_inches INTEGER,
     width_in_inches INTEGER,
-    date_added TIMESTAMP NOT NULL DEFAULT NOW(), 
+    date_added TIMESTAMP DEFAULT NOW(), 
     price DECIMAL NOT NULL,
     category_name TEXT
       REFERENCES categories ON DELETE CASCADE

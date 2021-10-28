@@ -17,14 +17,13 @@ afterEach(commonAfterEach);
 afterAll(commonAfterAll);
 
 describe("create", function () {
-    const now = (new Date()).toISOString();
 
     const newProduct = {
       name: "New Old Item",
       description: "This is a test for a new item.",
       condition: "good",
       quantity: 1,
-      dateAdded: now,
+      dateAdded: null,
       price: "30.00",
       categoryName: null,
       era: "1920's",
