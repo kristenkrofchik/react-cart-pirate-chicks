@@ -6,23 +6,13 @@ const { sqlForPartialUpdate } = require("../helpers/sql");
 
 class Product {
     /**Create a product (from data), update db, return new product data.
-     * Throws BadRequestError is product already in db
      */
-    static async create({ name, description, condition, image, quantity, primaryColor, era, heightInInches, widthInInches, dateAdded, price, categoryName }) {
-        const duplicateCheck = await db.query(
-            `SELECT handle
-             FROM companies
-             WHERE handle = $1`,
-            [handle]);
-        
-        if(duplicateCheck.rows[0])
-            throw new BadRequestError(`This product already exists in the database: ${product_name}`);
-        
+    static async create({ name, description, condition, image, quantity, primaryColor, era, heightInInches, widthInInches, dateAdded, price, categoryName }) {        
         const result = await db.query(
             `INSERT INTO products
             (name, description, condition, image, quantity, primary_color, era, height_in_inches, width_in_inches, date_added, price, category_name)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
-            RETURNING name, description, condition, image, quantity, primary_color AS 'primaryColor', era, height_in_inches AS 'heightInInches', width_in_inches AS 'widthInInches', date_added AS 'dateAdded', price, category_name AS 'categoryName'`,
+            RETURNING name, description, condition, image, quantity, primary_color AS "primaryColor", era, height_in_inches AS "heightInInches", width_in_inches AS "widthInInches", date_added AS "dateAdded", price, category_name AS "categoryName"`,
             [
                name,
                description,
