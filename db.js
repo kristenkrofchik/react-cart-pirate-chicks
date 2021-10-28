@@ -20,6 +20,8 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-db.connect();
+db.connect()
+  .then(() => console.log("Connection successful"))
+  .catch(err => console.log(err));
 
 module.exports = db;
