@@ -4,6 +4,7 @@
 
 const app = require('./app');
 const path = require('path');
+const express = require('express');
 const { PORT } = require('./config');
 
 app.use(express.static(path.join(__dirname, './frontend/build')));
