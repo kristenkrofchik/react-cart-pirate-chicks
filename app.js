@@ -8,7 +8,6 @@ const { authenticateJWT } = require('./middleware/auth');
 const { NotFoundError } = require('./expressError');
 
 const morgan = require('morgan');
-const path = require('path');
 
 const app = express();
 
