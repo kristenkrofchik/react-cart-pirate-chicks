@@ -2,6 +2,7 @@
 'use strict'
 
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const { authenticateJWT } = require('./middleware/auth');
 const { NotFoundError } = require('./expressError');
@@ -27,6 +28,14 @@ app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 app.use('/checkouts', checkoutRoutes);
+
+//serve static files from React frontend
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname + '/frontend/build/index.html'));
+});
+
 
 /**Handle 404 errors */
 
