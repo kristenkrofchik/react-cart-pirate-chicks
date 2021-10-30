@@ -28,10 +28,6 @@ app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 app.use('/checkouts', checkoutRoutes);
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, './frontend/src', 'index.js'));
-  });
-
 /**Handle 404 errors */
 
 app.use(function (req, res, next) {

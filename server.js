@@ -7,10 +7,10 @@ const path = require('path');
 const express = require('express');
 const { PORT } = require('./config');
 
-app.use(express.static(path.join(__dirname, './frontend/src')));
+app.use(express.static(path.join(__dirname, './frontend/build')));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, './frontend/src', 'index.js'));
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, './frontend/build', 'index.html'));
 });
 
 
