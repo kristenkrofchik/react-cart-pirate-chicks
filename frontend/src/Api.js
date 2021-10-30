@@ -4,7 +4,6 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 
 /**Handles methods on frontend side for communicating with API.
- * This will be the only location for API-aware code
  */
 
 class PirateApi {
@@ -41,28 +40,28 @@ class PirateApi {
     }
 
     /**Login user */
-    static async loginUser(data) {
+    /*static async loginUser(data) {
         let res = await this.request(`auth/token`, data, 'post');
         return res.token;
-    }
+    }*/
     
     /** Signup user */
-    static async signUpUser(data) {
+    /*static async signUpUser(data) {
         let res = await this.request(`auth/token`, data, 'post');
         return res.token;
-    }
+    }*/
 
     /** Save updated profile */
-    static async saveProfile(username, data) {
+    /*static async saveProfile(username, data) {
         let res = await this.request(`users/${username}`, data, 'patch');
         return res.user;
-    }
+    }*/
 
     /** Get current user */
-    static async getCurrentUser(username) {
+    /*static async getCurrentUser(username) {
         let res = await this.request(`users/${username}`);
         return res.user;
-    }
+    }*/
 }
 
 
