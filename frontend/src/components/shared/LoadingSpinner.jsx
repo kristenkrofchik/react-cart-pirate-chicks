@@ -1,4 +1,5 @@
 import React from "react";
+import './LoadingSpinner.styles.css';
 
 /** Loading message used by components that fetch API data. */
 
