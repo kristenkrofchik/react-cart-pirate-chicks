@@ -7,7 +7,7 @@ require('colors');
 
 //Common config for Pirate Chicks Vintage
 
-const SECRET_KEY = process.env.SECRET_KEY ||'sk_test_51JoBGWE464iRZKxIQKltbapqxNaCm88utZqad6E2dXuGmq5JUQIwP7m7R4RIDym7DWTDc5bHIi4bG2R8GpAsCJc600XQRFBgyk'
+const SECRET_KEY = process.env.SECRET_KEY;
 //const SECRET_KEY = process.env.SECRET_KEY || 'secret-dev';
 
 const PORT = process.env.PORT || 3001;
