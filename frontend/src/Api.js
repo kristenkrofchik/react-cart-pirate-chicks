@@ -74,7 +74,7 @@ class PirateApi {
     /** Call Stripe API */
     static async fetchFromAPI(data) {
         let res = await this.request(`checkouts/create-checkout-session`, data, 'post');
-        return res.json();
+        return res;
     }
     
 }

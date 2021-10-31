@@ -21,20 +21,20 @@ const StripeCheckout = () => {
                     product_data: {
                         name: item.name,
                         description: item.description,
-                        images: [item.image],
                     }
                 }
             }
             line_items.push(item);
         };
 
-        console.log(line_items);
+        let data = {
+            line_items: line_items,
+            customer_email: email
+        }
 
-        const resp = await PirateApi.fetchFromAPI({
-            body: { line_items: line_items, customer_email: email },
-        });
+        const resp = await PirateApi.fetchFromAPI(data);
 
-        const { sessionId } = resp;
+        const sessionId = resp.sessionId;
 
         const { error } = await stripe.redirectToCheckout({
             sessionId
