@@ -6,7 +6,7 @@ export const isInCart = (product, cartItems) => {
 export async function fetchFromAPI(endpoint, opts) {
     const { method, body } = { method: 'POST', body: null, ...opts };
 
-    const res = await fetch(`${API}/${endpoint}`, {
+    const res = await fetch(`${process.env.REACT_APP_API}/${endpoint}`, {
         method,
         ...(body && { body: JSON.stringify(body) }),
         headers: {
