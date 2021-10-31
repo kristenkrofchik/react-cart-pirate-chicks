@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import { CartContext } from '../../../context/CartContext';
-import { fetchFromAPI } from '../../../Helpers';
+import PirateApi from '../../../Api';
 
 const StripeCheckout = () => {
     const [email, setEmail] = useState('');
@@ -11,8 +11,9 @@ const StripeCheckout = () => {
     //create line items and use email to redirect to Stripe checkout page
     const handleGuestCheckout = async(e) => {
         e.preventDefault();
-        const line_items = cartItems.map(item => {
-            return {
+        let line_items = []; 
+        for(let item of cartItems) {
+            item = {
                 quantity: item.cartQuantity,
                 price_data: {
                     currency: "usd",
@@ -24,13 +25,13 @@ const StripeCheckout = () => {
                     }
                 }
             }
-        });
+            line_items.push(item);
+        };
 
         console.log(line_items);
-        console.log(email);
 
-        const resp = await fetchFromAPI("checkouts/create-checkout-session", {
-            body: { line_items, customer_email: email },
+        const resp = await PirateApi.fetchFromAPI({
+            body: { line_items: line_items, customer_email: email },
         });
 
         const { sessionId } = resp;
@@ -49,7 +50,8 @@ const StripeCheckout = () => {
             <div>
                 <input 
                 type='email' 
-                onChange={e => setEmail(e.target.value)} placeholder='Email' 
+                onChange={e => setEmail(e.target.value)} 
+                placeholder='Email' 
                 value={email} 
                 className='pirate-input' />
             </div>

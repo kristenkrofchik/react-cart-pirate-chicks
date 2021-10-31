@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-let BASE_URL;
+let BASE_URL = 'http://localhost:3001';
 
-if(process.env.NODE_ENV === 'production') {
+/*if(process.env.NODE_ENV === 'production') {
     BASE_URL = 'https://react-pirate-chicks.herokuapp.com/';
 }
 
 if(process.env.NODE_ENV === 'development') {
     BASE_URL = 'http://localhost:3001';
-}
+}*/
 
 /**Handles methods on frontend side for communicating with API.
  */
@@ -70,6 +70,13 @@ class PirateApi {
         let res = await this.request(`users/${username}`);
         return res.user;
     }
+
+    /** Call Stripe API */
+    static async fetchFromAPI(data) {
+        let res = await this.request(`checkouts/create-checkout-session`, data, 'post');
+        return res.json();
+    }
+    
 }
 
 
