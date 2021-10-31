@@ -6,7 +6,7 @@ if(process.env.NODE_ENV === 'production') {
     BASE_URL = process.env.REACT_APP_API;
 }
 
-if(process.end.NODE_ENV === 'development') {
+if(process.env.NODE_ENV === 'development') {
     BASE_URL = 'http://localhost:3001';
 }
 
