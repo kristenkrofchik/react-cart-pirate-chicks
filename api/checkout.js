@@ -4,7 +4,7 @@ const stripeAPI = require('../stripe');
 
 async function createCheckoutSession(req, res) {
     const domainUrl = process.env.WEB_APP_URL;
-    const { amount_total, line_items, customer_email } = req.body;
+    const { line_items, customer_email } = req.body;
     //check if req contains the above info.
     if (!line_items || !customer_email) {
         throw new BadRequestError(message= 'Missing required paramter for Stripe API.');
@@ -14,14 +14,13 @@ async function createCheckoutSession(req, res) {
 
     try {
         session = await stripeAPI.checkout.sessions.create({
-            payment_method_types: ['card'],
-            mode: 'payment',
-            amount_total,
+            payment_method_types: ["card"],
+            mode: "payment",
             line_items,
             customer_email,
             success_url: `${domainUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${domainUrl}/cancelled`,
-            shipping_address_collection: { allowed_countries: ['US'] }
+            shipping_address_collection: { allowed_countries: ["US"] }
         })
         res.status(200).json({ sessionId: session.id });
     } catch(error) {
