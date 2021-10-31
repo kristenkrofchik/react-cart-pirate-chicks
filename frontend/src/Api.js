@@ -1,7 +1,14 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API || "http://localhost:3001";
+let BASE_URL;
 
+if(process.env.NODE_ENV === 'production') {
+    BASE_URL = process.env.REACT_APP_API;
+}
+
+if(process.end.NODE_ENV === 'development') {
+    BASE_URL = 'http://localhost:3001';
+}
 
 /**Handles methods on frontend side for communicating with API.
  */
