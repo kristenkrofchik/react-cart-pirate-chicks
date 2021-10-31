@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Config from './Config';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -12,7 +13,7 @@ class PirateApi {
     static async request(endpoint, data={}, method = 'get') {
 
         //pass authorization token in header.
-        const url = `${BASE_URL}/${endpoint}`;
+        const url = `${Config.SERVER_URI}/${endpoint}`;
         const headers = {Authorization: `Bearer ${PirateApi.token}`};
         const params = (method === 'get') 
             ? data

@@ -41,5 +41,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://react-pirate-chicks.herokuapp.com/"
+  "proxy": "http://localhost:3001"
 }

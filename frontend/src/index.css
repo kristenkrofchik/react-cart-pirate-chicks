@@ -3,12 +3,9 @@ body {
   background-color: rgb(255, 254, 253);
   color: rgb(20, 11, 0);
   @font-face {
-    font-family: 'SuperGroteskA';
+    font-family: 'SuperGroteskA', sans-serif;
     src: local('./fonts/supergroteska-rg.tff'), format('truetype');
   }
-  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

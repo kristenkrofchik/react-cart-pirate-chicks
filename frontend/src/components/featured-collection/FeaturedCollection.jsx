@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FeaturedProduct from '../shared/FeaturedProduct';
-import LoadingSpinner from '../shared/LoadingSpinner';
+import LoadingSpinnerHome from '../shared/LoadingSpinnerHome';
 import PirateApi from '../../Api';
 
 const FeaturedCollection = () => {
@@ -16,7 +16,7 @@ const FeaturedCollection = () => {
         setProducts(products);
       }
 
-    if (!products) return <LoadingSpinner />;
+    if (!products) return <LoadingSpinnerHome />;
 
     const productItems = products.filter((product, i) => i < 4).map(product => (
         <FeaturedProduct {...product} key={product.id} />
