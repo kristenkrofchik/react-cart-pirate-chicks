@@ -5,7 +5,7 @@ import { fetchFromAPI } from '../../../Helpers';
 
 const StripeCheckout = () => {
     const [email, setEmail] = useState('');
-    const { cartItems } = useContext(CartContext);
+    const { cartItems, total } = useContext(CartContext);
     const stripe = useStripe();
 
     //create line items and use email to redirect to Stripe checkout page
@@ -27,7 +27,7 @@ const StripeCheckout = () => {
         });
 
         const resp = await fetchFromAPI('checkouts/create-checkout-session', {
-            body: { line_items, customer_email: email },
+            body: { amount_total: total, line_items, customer_email: email },
         });
 
         const { sessionId } = resp;

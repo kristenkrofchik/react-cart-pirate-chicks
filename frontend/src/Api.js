@@ -31,6 +31,8 @@ class PirateApi {
             console.error('API Error:', err.response);
             let message = err.response.data.error.message;
             throw Array.isArray(message) ? message : [message];
+        };
+    }
 
 
     /**Get list of all products, filtered by searchTerm if present */
@@ -46,47 +48,29 @@ class PirateApi {
     }
 
     /**Login user */
-    /*static async loginUser(data) {
+    static async loginUser(data) {
         let res = await this.request(`auth/token`, data, 'post');
         return res.token;
-    }*/
+    }
     
     /** Signup user */
-    /*static async signUpUser(data) {
+    static async signUpUser(data) {
         let res = await this.request(`auth/token`, data, 'post');
         return res.token;
-    }*/
+    }
 
     /** Save updated profile */
-    /*static async saveProfile(username, data) {
+    static async saveProfile(username, data) {
         let res = await this.request(`users/${username}`, data, 'patch');
         return res.user;
-    }*/
+    }
 
     /** Get current user */
-    /*static async getCurrentUser(username) {
+    static async getCurrentUser(username) {
         let res = await this.request(`users/${username}`);
         return res.user;
-    }*/
+    }
 }
-
-
-export async function fetchFromAPI(endpoint, opts) {
-  const { body } = { body: null, ...opts };
-  const res = await axios.post(`${BASE_URL}/${endpoint}`, {
-    ...(body && { body: JSON.stringify(body) }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (res.status === 200) {
-    return res.json();
-  } else {
-    throw new Error(res.statusText);
-  }
-}
-
 
 
 PirateApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +

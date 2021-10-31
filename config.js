@@ -12,7 +12,7 @@ const SECRET_KEY = process.env.SECRET_KEY;
 
 const PORT = process.env.PORT || 3001;
 
-const WEB_APP_URL = process.env.WEB_APP_URL || 'http://localhost:3000';
+const WEB_APP_URL = process.env.WEB_APP_URL; //|| 'http://localhost:3000';
 
 /** Use either app database or testing database */
 function getDatabase() {
