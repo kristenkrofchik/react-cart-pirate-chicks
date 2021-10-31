@@ -3,7 +3,7 @@ import axios from 'axios';
 let BASE_URL;
 
 if(process.env.NODE_ENV === 'production') {
-    BASE_URL = process.env.REACT_APP_API;
+    BASE_URL = 'https://react-pirate-chicks.herokuapp.com/';
 }
 
 if(process.env.NODE_ENV === 'development') {
@@ -31,8 +31,7 @@ class PirateApi {
             console.error('API Error:', err.response);
             let message = err.response.data.error.message;
             throw Array.isArray(message) ? message : [message];
-        }
-    }
+
 
     /**Get list of all products, filtered by searchTerm if present */
     static async getProducts(searchTerm) {

@@ -8,6 +8,7 @@ const StripeCheckout = () => {
     const { cartItems } = useContext(CartContext);
     const stripe = useStripe();
 
+    //create line items and use email to redirect to Stripe checkout page
     const handleGuestCheckout = async(e) => {
         e.preventDefault();
         const line_items = cartItems.map(item => {
@@ -29,12 +30,10 @@ const StripeCheckout = () => {
             body: { line_items, customer_email: email },
         });
 
-        console.log(resp);
-
-        //const { sessionId } = resp;
+        const { sessionId } = resp;
 
         const { error } = await stripe.redirectToCheckout({
-            line_items
+            sessionId
         });
 
         if (error) {
@@ -45,10 +44,16 @@ const StripeCheckout = () => {
     return (
         <form onSubmit={handleGuestCheckout}>
             <div>
-                <input type='email' onChange={e => setEmail(e.target.value)} placeholder='Email' value={email} className='pirate-input' />
+                <input 
+                type='email' 
+                onChange={e => setEmail(e.target.value)} placeholder='Email' 
+                value={email} 
+                className='pirate-input' />
             </div>
             <div className='submit-btn'>
-                <button type='submit' className='button is-black pirate-btn submit'>
+                <button 
+                type='submit' 
+                className='button is-black pirate-btn submit'>
                     Checkout
                 </button>
             </div>
