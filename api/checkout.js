@@ -1,9 +1,9 @@
 const { BadRequestError } = require('../expressError');
 const stripeAPI = require('../stripe');
-//const { WEB_APP_URL } = require('../config.js');
+const { WEB_APP_URL } = require('../config.js');
 
 async function createCheckoutSession(req, res) {
-    const domainUrl = `https://localhost:3000`;
+    const domainUrl = WEB_APP_URL;
     const { line_items, customer_email } = req.body;
     //check if req contains the above info.
     if (!line_items || !customer_email) {
