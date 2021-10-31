@@ -1,8 +1,6 @@
 import axios from 'axios';
 import Config from './Config';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-
 
 /**Handles methods on frontend side for communicating with API.
  */
