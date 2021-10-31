@@ -1,5 +1,6 @@
 import axios from 'axios';
-import Config from './Config';
+
+const BASE_URL = process.env.REACT_APP_API || "http://localhost:3001";
 
 
 /**Handles methods on frontend side for communicating with API.
@@ -11,7 +12,7 @@ class PirateApi {
     static async request(endpoint, data={}, method = 'get') {
 
         //pass authorization token in header.
-        const url = `${Config.SERVER_URI}/${endpoint}`;
+        const url = `${BASE_URL}/${endpoint}`;
         const headers = {Authorization: `Bearer ${PirateApi.token}`};
         const params = (method === 'get') 
             ? data
