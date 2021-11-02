@@ -60,39 +60,3 @@ CREATE TABLE user_payments (
     account_number INTEGER NOT NULL,
     expire_date TEXT NOT NULL
 );
-
-CREATE TABLE shopping_sessions (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL
-      REFERENCES users ON DELETE CASCADE,
-    total INTEGER
-);
-
-CREATE TABLE cart_items (
-    id SERIAL PRIMARY KEY,
-    session_id INTEGER NOT NULL
-      REFERENCES shopping_sessions ON DELETE CASCADE,
-    product_id INTEGER NOT NULL
-      REFERENCES products ON DELETE CASCADE,
-    quantity INTEGER NOT NULL
-);
-
-CREATE TABLE order_details (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL
-      REFERENCES users ON DELETE CASCADE,
-    total INTEGER NOT NULL,
-    amount DECIMAL NOT NULL,
-    provider TEXT NOT NULL,
-    status TEXT NOT NULL,
-    date TIMESTAMP NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE order_items (
-    id SERIAL PRIMARY KEY,
-    order_details_id INTEGER NOT NULL
-      REFERENCES order_details ON DELETE CASCADE,
-    product_id INTEGER NOT NULL
-      REFERENCES products ON DELETE CASCADE,
-    quantity INTEGER NOT NULL
-);
