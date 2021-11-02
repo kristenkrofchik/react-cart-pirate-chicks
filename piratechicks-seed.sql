@@ -18,7 +18,7 @@ INSERT INTO products (name, description, condition, image, quantity, primary_col
 VALUES ('Vintage Dan River Floral Pillowcase Pair', 
         'This is a set of 2 vintage standard pillowcases by Dan River. They are a 50/50 poly cotton blend and have a lovely bold floral design.', 
         'great', 
-        'https://images.unsplash.com/photo-1600876997455-4cafa4c419d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=386&q=80', 
+        './frontend/src/assets/1.jpg', 
         1, 
         null, 
         '1970s', 

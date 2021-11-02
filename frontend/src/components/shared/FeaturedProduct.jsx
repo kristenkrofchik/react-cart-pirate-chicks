@@ -4,6 +4,7 @@ import { CartContext } from '../../context/CartContext';
 import { withRouter } from 'react-router-dom';
 import './FeaturedProduct.styles.scss';
 
+
 const FeaturedProduct = (props) => {
     const {name, price, history, image, id, description, quantity } = props;
     const product = { name, image, price, id, description };
@@ -13,7 +14,7 @@ const FeaturedProduct = (props) => {
     return (
         <div className='featured-product'>
             <div className='featured-image' onClick={()=> history.push(`/product/${id}`)}>
-                <img src={image} alt={name} />
+                <img src={`${process.env.PUBLIC_URL}/images/${id}.jpg`} alt={name} />
             </div>
             <div className='name-price'>
                 <h3>{name}</h3>
