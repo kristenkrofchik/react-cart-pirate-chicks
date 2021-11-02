@@ -71,10 +71,10 @@ router.get('/:id', async function (req, res, next) {
 
 /**PATCH /[id] {data, data, ...} => {product} 
  * patches product data.
- * authorization required: admin.
+ * authorization required: none currently. will need to change in a later version.
 */
 
-router.patch("/:id", ensureAdmin, async function (req, res, next) {
+router.patch("/:id", async function (req, res, next) {
     try {
       const validator = jsonschema.validate(req.body, productUpdateSchema);
       if (!validator.valid) {

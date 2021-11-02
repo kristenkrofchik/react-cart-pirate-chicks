@@ -7,7 +7,7 @@ import PirateApi from '../../Api';
 import './SingleProduct.styles.scss';
 import LoadingSpinner from '../shared/LoadingSpinner';
 
-const SingleProduct = ({ history: { push } }) => {
+const SingleProduct = ({ history }) => {
     const { addProduct, increase, cartItems } = useContext(CartContext);
     const { id } = useParams();
     const [product, setProduct] = useState(null);
@@ -52,7 +52,14 @@ const SingleProduct = ({ history: { push } }) => {
                                 ADD MORE
                             </button>
                         }
-                        <button className='button is-black pirate-btn' id='btn-white-outline'>
+                        {
+                            quantity < 1 &&
+                            <button
+                                className='button is-white pirate-btn' id='btn-white-outline'>
+                                SOLD OUT
+                            </button>
+                        }
+                        <button className='button is-black pirate-btn' id='btn-white-outline' onClick={() => history.push('/cart')}>
                             CHECKOUT 
                         </button>
                     </div>

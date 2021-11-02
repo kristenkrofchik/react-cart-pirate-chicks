@@ -2,13 +2,22 @@ import React, { useContext, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import Layout from '../../shared/Layout';
 import { CartContext } from '../../../context/CartContext';
+import PirateApi from '../../../Api';
 
 const Success = ({ history }) => {
     const { clearCart, cartItems } = useContext(CartContext);
 
     //clear cart after successful check out
     useEffect(() => {
-        if (cartItems.length !== 0) { clearCart() }
+        if(cartItems.length !== 0) {
+            async function lowerInventory() {
+                for(let item of cartItems) {
+                    await PirateApi.editProductQuantity(item.id, {product: {quantity: parseInt(item.quantity) - 1}})
+                }
+            }
+            lowerInventory();
+            clearCart();
+        }
     }, [clearCart, cartItems]);
 
     return (

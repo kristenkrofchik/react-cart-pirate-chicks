@@ -47,6 +47,12 @@ class PirateApi {
         return res.product;
     }
 
+    /**Edit product quantity by id */
+    static async editProductQuantity(id, data) {
+        let res = await this.request(`products/${id}`, data, 'patch');
+        return res.quantity;
+    }
+
     /**Login user */
     static async loginUser(data) {
         let res = await this.request(`auth/token`, data, 'post');
