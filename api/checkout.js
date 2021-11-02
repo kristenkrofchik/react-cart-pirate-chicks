@@ -3,7 +3,7 @@ const stripeAPI = require('../stripe');
 //const { WEB_APP_URL } = require('../config.js');
 
 async function createCheckoutSession(req, res) {
-    const domainUrl = `http://localhost:3000`;
+    const domainUrl = process.env.WEB_APP_URL;
     const { line_items, customer_email } = req.body;
     //check if req contains the above info.
     if (!line_items || !customer_email) {
@@ -12,6 +12,7 @@ async function createCheckoutSession(req, res) {
 
     let session;
 
+    //make request to stripe API, return sessionId
     try {
         session = await stripeAPI.checkout.sessions.create({
             payment_method_types: ["card"],

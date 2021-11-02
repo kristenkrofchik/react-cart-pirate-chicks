@@ -5,6 +5,8 @@ import { CartContext } from '../../../context/CartContext';
 
 const Success = ({ history }) => {
     const { clearCart, cartItems } = useContext(CartContext);
+
+    //clear cart after successful check out
     useEffect(() => {
         if (cartItems.length !== 0) { clearCart() }
     }, [clearCart, cartItems]);

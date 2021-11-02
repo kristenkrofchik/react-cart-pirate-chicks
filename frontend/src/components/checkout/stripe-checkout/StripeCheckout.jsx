@@ -36,6 +36,7 @@ const StripeCheckout = () => {
 
         const sessionId = resp.sessionId;
 
+        //if success redirect to success page
         const { error } = await stripe.redirectToCheckout({
             sessionId
         });
@@ -45,8 +46,20 @@ const StripeCheckout = () => {
         }
     }
 
+    //lower item quantity when stripe chekcout submitted. this is a temporary inventory solution (does not account for checkout being cancelled). A future version will need to perform a more thourough inventory check on the success page with the session information from Stripe API call.
+    const handleInventory = () => {
+        for(let item of cartItems) {
+            item.quantity--
+        }
+    }
+
+    const onSubmit = () => {
+        handleGuestCheckout();
+        handleInventory();
+    }
+
     return (
-        <form onSubmit={handleGuestCheckout}>
+        <form onSubmit={onSubmit}>
             <div>
                 <input 
                 type='email' 
