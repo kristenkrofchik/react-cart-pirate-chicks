@@ -4,8 +4,10 @@ import Layout from '../../shared/Layout';
 import { CartContext } from '../../../context/CartContext';
 
 const Success = ({ history }) => {
-    const { clearCart } = useContext(CartContext);
-    useEffect(clearCart, []);
+    const { clearCart, cartItems } = useContext(CartContext);
+    useEffect(() => {
+        if (cartItems.length !== 0) { clearCart() }
+    }, [clearCart, cartItems]);
 
     return (
         <Layout>
@@ -15,6 +17,7 @@ const Success = ({ history }) => {
                 </p>
                 <div>
                     <button className='button is-black pirate-btn submit' onClick={() => history.push('/shop')}>
+                        Back to Shop
                     </button>
                 </div>
             </div>

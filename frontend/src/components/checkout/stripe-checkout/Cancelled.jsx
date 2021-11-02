@@ -6,11 +6,11 @@ const Cancelled = ({ history }) => {
     return (
         <Layout>
             <div className='checkout'>
-                <h1>Payment Failed</h1>
+                <h1>Payment Not Completed</h1>
                 <p>The checkout was unsuccessful. Please check your information and try again. Thank you!</p>
                 <div>
                     <button className='button is-black pirate-btn submit' onClick={() => history.push('/shop')}>
-                        Back to the Shop
+                        Back to Shop
                     </button>
                 </div>
             </div>

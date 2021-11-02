@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let BASE_URL = 'https://localhost:3001';
+let BASE_URL = 'http://localhost:3001';
 
 /*if(process.env.NODE_ENV === 'production') {
     BASE_URL = 'https://react-pirate-chicks.herokuapp.com/';
@@ -37,7 +37,7 @@ class PirateApi {
 
     /**Get list of all products, filtered by searchTerm if present */
     static async getProducts(searchTerm) {
-        let res = await this.request('products', { searchTerm });
+        let res = await this.request('products', { searchTerm }, 'get');
         return res.products;
     }
 
