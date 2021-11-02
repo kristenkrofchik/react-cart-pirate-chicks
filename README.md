@@ -2,16 +2,16 @@
 
 [Pirate Chicks Vintage](https://react-pirate-chicks.herokuapp.com/)
 
-Pirate Chicks Vintage is an ecommerce website for the vintage and antique shop I own and operate with my mom. Our shop has a large variety of products, but we specialize in colelctibles and home decor items from the 1920's to 1990's. This website was made with PostgreSQL, Node.js, Express and React. The website will list our available products and allow users to shop by adding items to their shopping cart and purchasing them. 
+Pirate Chicks Vintage is an ecommerce website for the vintage and antique shop I own and operate with my mom. Our shop has a large variety of products, but we specialize in colelctibles and home decor items from the 1920's to 1990's. This website was made with PostgreSQL, Node.js, Express, React and Stripe Payments. The website will list our available products and allow users to shop by adding items to their shopping cart and purchasing them. 
 
 ### User Flow
 
-A user will enter the site via the homepage. From there, they will use a navigation bar to view the shop's product inventory, which is stored on the backend in a PostgreSQL database. In a later version, the user will be able to view the products by a variety of criteria, including date added, price, name and category. The user interface on the frontend was created with React. The React code makes calls to the website's API on the Node.js backend to display the products and other relevant information.
+A user will enter the site via the homepage. From there, they will use a navigation bar to view the shop's product inventory, which is stored on the backend in a PostgreSQL database. In a later version, the user will be able to view the products by a variety of criteria, including date added, price, name and category. In a later version, the user will also be able to register and login to the website for greter ease of shopping. The user interface on the frontend was created with React. The React code makes calls to the website's API on the Node.js backend to display the products and other relevant information. 
 
-A user can choose products to add to their shopping cart. When they are finished shopping, a user can purchase the items in their cart. A user can also choose to register and login to the website to save their data for later shopping trips. The user data, including basic registration data, address, and payment information, will also be saved in the site's PostgreSQL database.
+A user can choose products to add to their shopping cart. When they are finished shopping, a user can purchase the items in their cart. The checkout session and payment is handled via Stripe, and the React app is connected to Stripe via the Stripe API. When a product is successfully purchased, its quantity will be reduced in the PostgreSQL database.
 
 ### Status
-This project is still in process. Version 1 will be deployed in October, 2021. Future versions of the project will include more functionality including user signup/login, a contact form and newsletter signup.
+This project is still in development, but the current version is a workable website that uses Stripe's test mode to make test purchases. Future versions of the project will include more functionality including user signup and login, a contact form and a newsletter signup. Future versions will also allow for real purchases. 
 
 ### Installation
 
@@ -60,6 +60,8 @@ $ npm start
 [PostgreSQL](https://www.postgresql.org/docs/)
 
 [Axios](https://axios-http.com/docs/intro)
+
+[Stripe](https://stripe.com/docs/api)
 
 
 ### Contributing
