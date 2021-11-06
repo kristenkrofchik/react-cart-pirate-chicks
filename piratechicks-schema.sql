@@ -8,7 +8,7 @@ CREATE TABLE products (
     description TEXT NOT NULL,
     condition TEXT NOT NULL,
     image TEXT,
-    quantity INTEGER NOT NULL,
+    quantity INTEGER,
     primary_color TEXT,
     era TEXT,
     height_in_inches INTEGER,
