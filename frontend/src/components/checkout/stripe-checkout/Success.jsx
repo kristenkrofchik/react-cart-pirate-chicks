@@ -13,7 +13,7 @@ const Success = ({ history }) => {
             async function lowerInventory() {
                 for(let item of cartItems) {
                     try {
-                        await PirateApi.editProductQuantity(item.id, { quantity: item.quantity - 1} )
+                        await PirateApi.editProductQuantity(item.id, { quantity: (item.quantity - 1)} )
                     } catch (error) {
                         console.log(error);
                     }
