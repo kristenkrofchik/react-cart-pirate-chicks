@@ -23,14 +23,14 @@ const SingleProduct = ({ history }) => {
     //while we wait for product
     if(!product) return <LoadingSpinner />;
 
-    const { image, name, price, description, quantity } = product;
+    const { name, price, description, quantity } = product;
     const itemInCart = isInCart(product, cartItems);
 
     return (
         <Layout>
             <div className='single-product-container'>
                 <div className='product-image'>
-                    <img src={image} alt={name} />
+                    <img src={`${process.env.PUBLIC_URL}/images/${id}.jpg`} alt={name} />
                 </div>
                 <div className='product-details'>
                     <div className='name-price'>
