@@ -13,7 +13,7 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Switch>
         <Route exact path='/' component={Homepage} />
         <Route path='/shop' component={Shop} />

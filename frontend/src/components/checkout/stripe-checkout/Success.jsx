@@ -12,7 +12,11 @@ const Success = ({ history }) => {
         if(cartItems.length !== 0) {
             async function lowerInventory() {
                 for(let item of cartItems) {
-                    await PirateApi.editProductQuantity(item.id, {product: {quantity: parseInt(item.quantity) - 1}})
+                    try {
+                        await PirateApi.editProductQuantity(item.id, { quantity: item.quantity - 1} )
+                    } catch (error) {
+                        console.log(error);
+                    }
                 }
             }
             lowerInventory();

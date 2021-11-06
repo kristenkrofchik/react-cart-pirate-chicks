@@ -128,7 +128,7 @@ class Product {
 
         const querySql = `UPDATE products
                           SET ${setCols}
-                          WHERE handle = ${handleVarIdx}
+                          WHERE id = ${handleVarIdx}
                           RETURNING id,
                                     name,
                                     description,

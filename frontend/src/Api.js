@@ -50,7 +50,7 @@ class PirateApi {
     /**Edit product quantity by id */
     static async editProductQuantity(id, data) {
         let res = await this.request(`products/${id}`, data, 'patch');
-        return res.quantity;
+        return res.product;
     }
 
     /**Login user */

@@ -8,8 +8,8 @@ const { ensureAdmin } = require("../middleware/auth");
 const Product = require("../models/product");
 
 const productNewSchema = require("../schemas/productNew.json");
-const productUpdateSchema = require("../schemas/productUpdate.json");
 const productSearchSchema = require("../schemas/productSearch.json");
+const db = require("../db");
 
 const router = new express.Router();
 
@@ -69,25 +69,19 @@ router.get('/:id', async function (req, res, next) {
     }
 })
 
-/**PATCH /[id] {data, data, ...} => {product} 
- * patches product data.
- * authorization required: none currently. will need to change in a later version.
-*/
-
-router.patch("/:id", async function (req, res, next) {
-    try {
-      const validator = jsonschema.validate(req.body, productUpdateSchema);
-      if (!validator.valid) {
-        const errs = validator.errors.map(e => e.stack);
-        throw new BadRequestError(errs);
-      }
-  
-      const product = await Product.update(req.params.handle, req.body);
-      return res.json({ product });
-    } catch (err) {
-      return next(err);
-    }
-  });
+/**PATCH - edit item quantity on successful checkout.
+ * in a later version I will add a more complete patch route for admin.
+ */
+router.patch('/:id', async function (req, res, next) {
+  try {
+    const { quantity } = req.body;
+    const { id } = req.params;
+    const results = await db.query(`UPDATE products SET quantity=${quantity} WHERE id=${id} RETURNING id, name, quantity`);
+    return res.send(results.rows[0])
+  } catch(err) {
+    return next(err);
+  }
+})
 
   /** DELETE /[id]  =>  { deleted: id }
  * Authorization: admin

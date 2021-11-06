@@ -8,6 +8,10 @@
 .app {
     position: relative;
     min-height: 100vh;
+    @font-face {
+        font-family: 'SuperGroteskA', sans-serif;
+        src: local('./fonts/supergroteska-rg.tff'), format('truetype');
+      }
 }
 
 img {
