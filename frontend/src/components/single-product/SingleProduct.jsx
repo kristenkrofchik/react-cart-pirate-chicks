@@ -39,7 +39,7 @@ const SingleProduct = ({ history }) => {
                     </div>
                     <div className='add-to-cart-buttons'>
                         {
-                            !itemInCart &&
+                            !itemInCart && quantity > 0 &&
                             <button 
                                 className='button is-white pirate-btn' id='btn-white-outline' onClick={() => addProduct(product)}>
                                 ADD TO CART
@@ -54,10 +54,9 @@ const SingleProduct = ({ history }) => {
                         }
                         {
                             quantity < 1 &&
-                            <button
-                                className='button is-white pirate-btn' id='btn-white-outline'>
+                            <h4>
                                 SOLD OUT
-                            </button>
+                            </h4>
                         }
                         <button className='button is-black pirate-btn' id='btn-white-outline' onClick={() => history.push('/cart')}>
                             CHECKOUT 

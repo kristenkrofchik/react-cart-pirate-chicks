@@ -20,12 +20,18 @@ const FeaturedProduct = (props) => {
                 <h3>{name}</h3>
                 <p>$ {price}</p>
                 { 
-                    !itemInCart &&
+                    !itemInCart && quantity > 0 &&
                     <button className='button is-black pirate-btn' onClick={() => addProduct(product)}>ADD TO CART</button>
                 }
                 {
                     itemInCart && quantity > 1 &&
                     <button className='button is-white pirate-btn' id='btn-white-outline' onClick={() => increase(product)}>ADD MORE</button>
+                }
+                {
+                    quantity < 1 &&
+                    <h4>
+                        SOLD OUT
+                    </h4>
                 }
             </div>
         </div>
