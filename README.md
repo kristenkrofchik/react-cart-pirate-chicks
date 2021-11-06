@@ -24,7 +24,14 @@ This project is still in development, but the current version is a workable webs
 ```bash
 $ npm install
 ```
-4. Run npm start to start the application:
+
+4. Create and seed PostgreSQL database (you will need to have PostgreSQL installed on your machine to do this):
+
+```bash
+$ psql < piratechicks.sql
+```
+
+6. Run npm start to start the application:
 
 ```bash
 $ npm start
