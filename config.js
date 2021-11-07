@@ -18,7 +18,7 @@ function getDatabase() {
     return(process.env.NODE_ENV === 'test')
         ? 'piratechicks_test'
         : process.env.DATABASE_URL || 'piratechicks';
-}
+}1
 
 /** Speed up bcrypt for testing */
 const BCRYPT_WORK_FACTOR = process.env.NODE_ENV === 'test' ? 1 : 12;
