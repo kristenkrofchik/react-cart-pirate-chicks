@@ -30,7 +30,11 @@ class PirateApi {
         } catch (err) {
             console.error('API Error:', err.response);
             let message = err.response.data.error.message;
-            throw Array.isArray(message) ? message : [message];
+            if(message !== undefined) {
+                throw Array.isArray(message) ? message : [message];
+            } else {
+                console.log('There was a frontend API error.')
+            }
         };
     }
 
