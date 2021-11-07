@@ -1,9 +1,17 @@
 const { BadRequestError } = require('../expressError');
 const stripeAPI = require('../stripe');
-//const { WEB_APP_URL } = require('../config.js');
+
+let BASE_URL;
+
+if(process.env.NODE_ENV === 'production') {
+    BASE_URL = 'https://react-pirate-chicks.herokuapp.com';
+}
+
+if(process.env.NODE_ENV === 'development') {
+    BASE_URL = 'http://localhost:3001';
+}
 
 async function createCheckoutSession(req, res) {
-    const domainUrl = process.env.WEB_APP_URL;
     const { line_items, customer_email } = req.body;
     //check if req contains the above info.
     if (!line_items || !customer_email) {
@@ -19,8 +27,8 @@ async function createCheckoutSession(req, res) {
             mode: "payment",
             line_items,
             customer_email,
-            success_url: `${domainUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${domainUrl}/cancelled`,
+            success_url: `${BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${BASE_URL}/cancelled`,
             shipping_address_collection: { allowed_countries: ["US"] }
         })
         res.status(200).json({ sessionId: session.id });
