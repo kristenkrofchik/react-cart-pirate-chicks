@@ -1,8 +1,9 @@
 # Pirate Chicks Vintage
 
 [Pirate Chicks Vintage](https://react-pirate-chicks.herokuapp.com/)
+Please click the link above to view the deployed website!
 
-Pirate Chicks Vintage is an ecommerce website for the vintage and antique shop I own and operate with my mom. Our shop has a large variety of products, but we specialize in colelctibles and home decor items from the 1920's to 1990's. This website was made with PostgreSQL, Node.js, Express, React and Stripe Payments. The website will list our available products and allow users to shop by adding items to their shopping cart and purchasing them. 
+Pirate Chicks Vintage is an e-commerce website for the vintage and antique shop I own and operate with my mom. Our shop has a large variety of products, but we specialize in collectibles and home decor items from the 1920's to 1990's. This website was made with PostgreSQL, Node.js, Express, React and Stripe Payments. The website will list our available products and allow users to shop by adding items to their shopping cart and purchasing them. 
 
 ### User Flow
 
