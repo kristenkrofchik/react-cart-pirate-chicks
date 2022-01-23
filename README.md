@@ -32,7 +32,7 @@ $ npm install
 $ psql < piratechicks.sql
 ```
 
-6. Run npm start to start the application:
+5.. Run npm start to start the application:
 
 ```bash
 $ npm start
